@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EMRG 223 Pharmacology — Interactive Final Exam Bank</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .choice:hover { outline: 2px dashed rgba(0,0,0,0.2) }
+    .hidden-print { display: none; }
+    @media print {
+      .no-print { display: none !important; }
+      .print-block { display: block !important; }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-5xl mx-auto p-4 md:p-8">
+    <header class="mb-6">
+      <h1 class="text-3xl font-black tracking-tight">EMRG 223 Pharmacology — Interactive Final Exam Bank</h1>
+      <p class="text-sm text-gray-600 mt-1">
+        Built for SAIT PCP Pharmacology: pharmacokinetics/dynamics, autonomic receptors, med assessment, medical math,
+        IV fluids/blood, cardiology, endocrine, antiemetics/respiratory, toxicology/overdose.
+      </p>
+      <div class="mt-4 grid gap-3 md:grid-cols-3">
+        <div class="p-3 bg-white rounded-xl shadow">
+          <label class="block text-xs font-semibold text-gray-500">Load Question Bank (.json)</label>
+          <input id="bankFile" type="file" accept=".json" class="mt-2 block w-full text-sm"/>
+          <button id="loadDefault" class="mt-3 text-xs underline text-blue-600">Load included starter bank</button>
+        </div>
+        <div class="p-3 bg-white rounded-xl shadow">
+          <label class="block text-xs font-semibold text-gray-500">Mode</label>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <button data-mode="exam" class="mode-btn px-3 py-1.5 rounded-lg bg-gray-900 text-white text-sm">Exam</button>
+            <button data-mode="study" class="mode-btn px-3 py-1.5 rounded-lg bg-gray-100 text-sm">Study (show answers)</button>
+            <button data-mode="practice" class="mode-btn px-3 py-1.5 rounded-lg bg-gray-100 text-sm">Practice (instant check)</button>
+          </div>
+        </div>
+        <div class="p-3 bg-white rounded-xl shadow">
+          <label class="block text-xs font-semibold text-gray-500">Filters</label>
+          <div class="mt-2 grid grid-cols-2 gap-2 text-xs" id="filters"></div>
+        </div>
+      </div>
+      <div class="mt-4 flex flex-wrap gap-2">
+        <button id="startBtn" class="px-4 py-2 bg-blue-600 text-white rounded-xl no-print">Start / Reset</button>
+        <button id="shuffleBtn" class="px-4 py-2 bg-indigo-600 text-white rounded-xl no-print">Shuffle</button>
+        <button id="exportBtn" class="px-4 py-2 bg-emerald-600 text-white rounded-xl no-print">Export Results (.json)</button>
+        <button id="printBtn" class="px-4 py-2 bg-gray-700 text-white rounded-xl no-print">Print</button>
+      </div>
+    </header>
+
+    <section id="meta" class="mb-6 hidden">
+      <div class="p-4 bg-white rounded-xl shadow flex flex-wrap items-center gap-4">
+        <div><span class="text-xs text-gray-500">Questions</span><div id="qCount" class="text-2xl font-bold">0</div></div>
+        <div><span class="text-xs text-gray-500">Mode</span><div id="modeLabel" class="text-2xl font-bold">Exam</div></div>
+        <div><span class="text-xs text-gray-500">Score</span><div id="score" class="text-2xl font-bold">0%</div></div>
+        <div class="ml-auto">
+          <input id="searchBox" class="px-3 py-2 rounded-lg border w-64" placeholder="Search (drug, topic, keyword)"/>
+        </div>
+      </div>
+    </section>
+
+    <section id="exam" class="space-y-4"></section>
+
+    <footer class="mt-12 text-xs text-gray-500">
+      <p>Tip: In <strong>Study</strong> mode, answers & rationales are revealed. In <strong>Practice</strong> mode, you can check each item instantly.
+      In <strong>Exam</strong> mode, auto-gradable items score on Submit; free-response are left for self-marking.</p>
+      <p class="mt-2">Built for: EMRG 223 (SAIT) — aligns with course slides and protocols (student-provided).</p>
+    </footer>
+  </div>
+
+  <script>
+    const categories = [
+      "Intro/Legislation",
+      "PharmKinetics/Dynamics",
+      "Autonomic (Alpha/Beta)",
+      "Med Assessment/Seven Rights",
+      "Medical Math",
+      "IV Fluids & Blood",
+      "Cardiology Meds",
+      "Endocrine Meds",
+      "Resp/Antiemetic Meds",
+      "Toxicology/Opioids",
+    ];
+
+    const typeLabels = {
+      "MC": "Multiple Choice",
+      "T/F": "True/False",
+      "FIB": "Fill in the Blank",
+      "MS": "Multi-Select",
+      "MAT": "Matching",
+      "SA": "Short Answer",
+      "WR": "Written Response",
+    };
+
+    let BANK = [];      // loaded bank
+    let MODE = "exam";  // exam | study | practice
+    let FILTERS = new Set(categories);
+    let RESPONSES = {}; // {id: userResponse}
+    let RESULTS = {};   // {id: {correct:bool, feedback:string, score:number}}
+    let CURRENT = [];   // visible questions (after filters/search)
+
+    function $(sel, root=document){ return root.querySelector(sel); }
+    function $all(sel, root=document){ return Array.from(root.querySelectorAll(sel)); }
+
+    // UI helpers
+    function notify(msg, ok=true){
+      const el = document.createElement('div');
+      el.className = `fixed top-4 right-4 px-3 py-2 rounded-lg shadow text-sm ${ok? 'bg-emerald-600 text-white':'bg-red-600 text-white'}`;
+      el.textContent = msg;
+      document.body.appendChild(el);
+      setTimeout(()=> el.remove(), 1600);
+    }
+
+    function renderFilters(){
+      const box = $("#filters");
+      box.innerHTML = "";
+      categories.forEach(cat => {
+        const on = FILTERS.has(cat);
+        const btn = document.createElement('button');
+        btn.className = `px-2 py-1 rounded-lg border ${on ? 'bg-gray-900 text-white' : 'bg-white'}`;
+        btn.textContent = cat;
+        btn.onclick = () => {
+          if(FILTERS.has(cat)) FILTERS.delete(cat); else FILTERS.add(cat);
+          renderFilters();
+          applyFilters();
+        };
+        box.appendChild(btn);
+      });
+    }
+
+    function applyFilters(){
+      const q = $("#searchBox").value.trim().toLowerCase();
+      CURRENT = BANK.filter(it => FILTERS.has(it.category) && (
+        !q || [it.question, (it.rationale||""), (it.tags||[]).join(" "), (it.category||"")].join(" ").toLowerCase().includes(q)
+      ));
+      $("#qCount").textContent = CURRENT.length;
+      renderExam();
+    }
+
+    function setMode(m){
+      MODE = m;
+      $all('.mode-btn').forEach(b=> b.className = b.className.replace('bg-gray-900 text-white','bg-gray-100'));
+      const active = $(`.mode-btn[data-mode="${m}"]`);
+      active.className = active.className.replace('bg-gray-100','bg-gray-900 text-white');
+      $("#modeLabel").textContent = m.charAt(0).toUpperCase()+m.slice(1);
+      renderExam();
+    }
+
+    function start(reset=false){
+      RESPONSES = {};
+      RESULTS = {};
+      applyFilters();
+      $("#meta").classList.remove("hidden");
+      notify("Ready. Good luck!");
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+
+    function shuffle(){
+      BANK.sort(()=> Math.random()-0.5);
+      applyFilters();
+    }
+
+    function grade(){
+      let correct = 0, total = 0;
+      CURRENT.forEach(item => {
+        const res = gradeItem(item, RESPONSES[item.id]);
+        if(res !== null){
+          RESULTS[item.id] = res;
+          total += res.max;
+          correct += res.score;
+        }
+      });
+      const pct = total ? Math.round((correct/total)*100) : 0;
+      $("#score").textContent = pct + "%";
+      renderExam();
+      notify(`Scored auto-gradable items: ${pct}%`);
+    }
+
+    function gradeItem(item, val){
+      // Returns {correct:bool, feedback, score, max}
+      const t = item.type;
+      if(["SA","WR","MAT"].includes(t)) return null; // self-graded
+      if(val == null) return {correct:false, feedback:"No answer", score:0, max:1};
+      if(t==="MC" || t==="T/F"){
+        const ok = String(val) === String(item.correct);
+        return {correct:ok, feedback: ok?"Correct":"Incorrect", score: ok?1:0, max:1};
+      }
+      if(t==="FIB"){
+        const ans = (Array.isArray(item.correct)? item.correct : [item.correct]).map(s=>String(s).toLowerCase().trim());
+        const got = String(val).toLowerCase().trim();
+        const ok = ans.includes(got);
+        return {correct:ok, feedback: ok?"Correct":"Incorrect", score: ok?1:0, max:1};
+      }
+      if(t==="MS"){
+        // all-or-nothing; exact set match
+        const need = new Set(item.correct.map(String));
+        const got = new Set((val||[]).map(String));
+        const ok = need.size===got.size && [...need].every(v=>got.has(v));
+        return {correct:ok, feedback: ok?"Correct":"Incorrect", score: ok?2:0, max:2};
+      }
+      return null;
+    }
+
+    function onChange(id, value){
+      RESPONSES[id] = value;
+      if(MODE==="practice"){
+        const item = CURRENT.find(x=>x.id===id);
+        const res = gradeItem(item, value);
+        if(res && res.max){
+          RESULTS[id] = res;
+          $("#score").textContent = ""; // live mode
+          renderExam();
+        }
+      }
+    }
+
+    function choice(name, value, label, checked=false){
+      const id = `${name}_${btoa(String(value)).replace(/=/g,'')}`;
+      return `
+        <label for="${id}" class="choice block px-3 py-2 rounded-lg border bg-white cursor-pointer">
+          <div class="flex gap-2 items-start">
+            <input id="${id}" type="radio" name="${name}" value="${String(value).replace(/"/g,'&quot;')}" ${checked?'checked':''}
+              class="mt-1"
+              onclick="onChange('${name}', this.value)"
+            />
+            <span class="text-sm">${label}</span>
+          </div>
+        </label>
+      `;
+    }
+
+    function checkbox(name, value, label, checked=false){
+      const id = `${name}_${btoa(String(value)).replace(/=/g,'')}`;
+      return `
+        <label for="${id}" class="choice block px-3 py-2 rounded-lg border bg-white cursor-pointer">
+          <div class="flex gap-2 items-start">
+            <input id="${id}" type="checkbox" value="${String(value).replace(/"/g,'&quot;')}" ${checked?'checked':''}
+              class="mt-1"
+              onchange="
+                (function(el){
+                  const cbs = Array.from(document.querySelectorAll('input[type=checkbox][data-name=${name}]'));
+                  const vals = cbs.filter(x=>x.checked).map(x=>x.value);
+                  onChange('${name}', vals);
+                })(this)
+              "
+              data-name="${name}"
+            />
+            <span class="text-sm">${label}</span>
+          </div>
+        </label>
+      `;
+    }
+
+    function renderItem(item, idx){
+      const name = item.id;
+      const res = RESULTS[item.id] || null;
+      let badge = '';
+      if(res){
+        badge = res.correct
+          ? '<span class="text-emerald-700 font-semibold">✓</span>'
+          : '<span class="text-red-600 font-semibold">✕</span>';
+      }
+
+      const wrapper = document.createElement('article');
+      wrapper.className = "p-4 bg-white rounded-xl shadow";
+      wrapper.innerHTML = `
+        <div class="flex items-start gap-3">
+          <span class="text-xs px-2 py-1 rounded bg-gray-100">${idx+1}</span>
+          <div class="flex-1">
+            <div class="flex flex-wrap items-center gap-2">
+              <h3 class="font-semibold">${item.question}</h3>
+              <span class="text-xs px-2 py-1 rounded bg-indigo-50 text-indigo-700">${typeLabels[item.type]||item.type}</span>
+              <span class="text-xs px-2 py-1 rounded bg-amber-50 text-amber-700">${item.category}</span>
+              ${badge? `<span>${badge}</span>`:''}
+            </div>
+            <div class="mt-3 space-y-2" id="content_${name}"></div>
+            <div class="mt-3 text-sm text-gray-600 ${MODE==='study' ? '' : 'hidden'}">
+              ${item.answer_expl? `<div class="mt-2"><span class="font-semibold">Rationale:</span> ${item.answer_expl}</div>`:''}
+            </div>
+          </div>
+        </div>
+      `;
+
+      const box = wrapper.querySelector("#content_"+name);
+      const prev = RESPONSES[name];
+      if(item.type==="MC" || item.type==="T/F"){
+        item.options.forEach((opt,i)=> {
+          box.insertAdjacentHTML('beforeend', choice(name, i, opt, prev==i));
+        });
+      } else if(item.type==="FIB"){
+        box.innerHTML = `
+          <input type="text" class="w-full px-3 py-2 rounded-lg border" placeholder="Your answer"
+            value="${prev? String(prev).replace(/"/g,'&quot;'):''}"
+            oninput="onChange('${name}', this.value)"
+          />
+        `;
+        if(MODE!=="exam"){
+          const show = Array.isArray(item.correct)? item.correct.join(' / ') : item.correct;
+          box.insertAdjacentHTML('beforeend', `<div class="text-xs text-gray-500 mt-1">Correct: <span class="font-mono">${show}</span></div>`);
+        }
+      } else if(item.type==="MS"){
+        item.options.forEach((opt,i)=> {
+          const checked = Array.isArray(prev) && prev.map(String).includes(String(i));
+          box.insertAdjacentHTML('beforeend', checkbox(name, i, opt, checked));
+        });
+        if(MODE!=="exam"){
+          const show = item.correct.map(i=> item.options[i]).join(', ');
+          box.insertAdjacentHTML('beforeend', `<div class="text-xs text-gray-500 mt-1">Correct: <span class="font-mono">${show}</span></div>`);
+        }
+      } else if(item.type==="SA" || item.type==="WR"){
+        box.innerHTML = `
+          <textarea class="w-full px-3 py-2 rounded-lg border h-28" placeholder="Type your response..."
+            oninput="onChange('${name}', this.value)">${prev? String(prev).replace(/</g,'&lt;').replace(/>/g,'&gt;'):''}</textarea>
+          ${item.rubric? `<div class="mt-2 text-xs text-gray-600"><span class="font-semibold">Guide:</span> ${item.rubric}</div>`:''}
+        `;
+        if(MODE!=="exam" && item.sample_answer){
+          box.insertAdjacentHTML('beforeend', `<details class="mt-2 text-xs">
+            <summary class="cursor-pointer text-blue-700">Show sample answer</summary>
+            <div class="mt-1 text-gray-700">${item.sample_answer}</div>
+          </details>`);
+        }
+      } else if(item.type==="MAT"){
+        box.innerHTML = `
+          <div class="text-sm text-gray-600">Matching (self-mark): Draw lines on paper or list pairs here. Key is shown in Study mode.</div>
+          <textarea class="w-full px-3 py-2 rounded-lg border h-28" placeholder="Your matches..."
+            oninput="onChange('${name}', this.value)">${prev? String(prev).replace(/</g,'&lt;').replace(/>/g,'&gt;'):''}</textarea>
+        `;
+        if(MODE!=="exam"){
+          box.insertAdjacentHTML('beforeend', `<div class="mt-2 text-xs text-gray-600"><span class="font-semibold">Key:</span> ${item.match_key || 'See bank'}</div>`);
+        }
+      }
+
+      return wrapper;
+    }
+
+    function renderExam(){
+      const mount = $("#exam");
+      mount.innerHTML = "";
+      CURRENT.forEach((it, idx)=> mount.appendChild(renderItem(it, idx)));
+      // Submit/score button if auto-gradable items exist
+      if(MODE==="exam" && CURRENT.some(q=>!["SA","WR","MAT"].includes(q.type))){
+        const bar = document.createElement('div');
+        bar.className = "sticky bottom-4 flex justify-end";
+        bar.innerHTML = '<button class="px-5 py-2 rounded-xl bg-emerald-600 text-white shadow" onclick="grade()">Submit & Score</button>';
+        mount.appendChild(bar);
+      }
+    }
+
+    $("#exportBtn").onclick = () => {
+      const out = {
+        mode: MODE,
+        timestamp: new Date().toISOString(),
+        total: CURRENT.length,
+        responses: RESPONSES,
+        results: RESULTS
+      };
+      const blob = new Blob([JSON.stringify(out, null, 2)], {type: 'application/json'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'emrg223_results.json';
+      a.click();
+    };
+
+    $("#printBtn").onclick = () => window.print();
+    $("#shuffleBtn").onclick = () => shuffle();
+    $("#startBtn").onclick = () => start(true);
+    $("#searchBox").oninput = () => applyFilters();
+
+    // Mode toggles
+    $all(".mode-btn").forEach(btn => {
+      btn.onclick = () => setMode(btn.dataset.mode);
+    });
+
+    // Load bank file
+    $("#bankFile").addEventListener('change', (e)=> {
+      const file = e.target.files[0];
+      if(!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try{
+          const data = JSON.parse(reader.result);
+          if(!Array.isArray(data)) throw new Error("Bank must be an array");
+          BANK = data;
+          notify(`Loaded bank with ${BANK.length} questions.`);
+          renderFilters();
+          start();
+        }catch(err){
+          notify("Invalid JSON: "+err.message, false);
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    // Load included starter bank (fetch embedded JSON at same folder name)
+    document.getElementById('loadDefault').onclick = async () => {
+      try{
+        const resp = await fetch('emrg223_exam_bank.json', {cache:'no-store'});
+        const data = await resp.json();
+        BANK = data;
+        notify(`Loaded starter bank with ${BANK.length} questions.`);
+        renderFilters();
+        start();
+      }catch(e){
+        notify("Couldn't load the starter bank file next to this HTML. Place both files together.", false);
+      }
+    };
+
+    // Initialize filters
+    renderFilters();
+  </script>
+</body>
+</html>

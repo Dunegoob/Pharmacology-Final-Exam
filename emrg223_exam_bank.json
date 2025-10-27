@@ -1,0 +1,1114 @@
+[
+  {
+    "type": "MC",
+    "category": "Intro/Legislation",
+    "question": "Which Canadian law governs narcotics and controlled substances?",
+    "options": [
+      "Food and Drugs Act",
+      "Controlled Drugs and Substances Act",
+      "Canada Health Act",
+      "Hazardous Products Act"
+    ],
+    "correct": 1,
+    "answer_expl": "CDSA regulates production, distribution, and possession.",
+    "tags": [
+      "legislation"
+    ],
+    "id": "Q001"
+  },
+  {
+    "type": "MC",
+    "category": "Intro/Legislation",
+    "question": "Which 'Seven Right' ensures 'Epi 1:1000 IM' is not given IV?",
+    "options": [
+      "Right Documentation",
+      "Right Time",
+      "Right Route",
+      "Right Dose"
+    ],
+    "correct": 2,
+    "answer_expl": "Right route is critical for safety.",
+    "tags": [
+      "seven rights"
+    ],
+    "id": "Q002"
+  },
+  {
+    "type": "T/F",
+    "category": "Intro/Legislation",
+    "question": "All narcotics must be accounted for (administered, wasted, expired, broken).",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": 0,
+    "answer_expl": "Accountability is required for controlled substances.",
+    "tags": [],
+    "id": "Q003"
+  },
+  {
+    "type": "MC",
+    "category": "Intro/Legislation",
+    "question": "Which is an advantage of the IV route?",
+    "options": [
+      "Least infection risk",
+      "Most rapidly effective",
+      "Time\u2011released absorption",
+      "Unaffected by dose errors"
+    ],
+    "correct": 1,
+    "answer_expl": "IV is the fastest, but also most dangerous.",
+    "tags": [],
+    "id": "Q004"
+  },
+  {
+    "type": "MC",
+    "category": "PharmKinetics/Dynamics",
+    "question": "'First\u2011pass metabolism' primarily affects which route?",
+    "options": [
+      "IV",
+      "IM",
+      "Oral (PO)",
+      "IN"
+    ],
+    "correct": 2,
+    "answer_expl": "GI absorption -> portal system -> liver before systemic.",
+    "tags": [],
+    "id": "Q005"
+  },
+  {
+    "type": "FIB",
+    "category": "PharmKinetics/Dynamics",
+    "question": "Define drug half\u2011life: time required for the total amount of a drug in the body to _______",
+    "correct": "decrease by half",
+    "answer_expl": "Half-life informs repeat dosing intervals.",
+    "tags": [],
+    "id": "Q006"
+  },
+  {
+    "type": "MC",
+    "category": "PharmKinetics/Dynamics",
+    "question": "Which factor increases absorption rate most?",
+    "options": [
+      "Smaller surface area",
+      "Poor perfusion",
+      "Large surface area (e.g., lungs)",
+      "Protein binding"
+    ],
+    "correct": 2,
+    "answer_expl": "Lung and sublingual membranes absorb rapidly.",
+    "tags": [],
+    "id": "Q007"
+  },
+  {
+    "type": "MC",
+    "category": "PharmKinetics/Dynamics",
+    "question": "Which pair correctly matches receptor pharmacology?",
+    "options": [
+      "Agonist = blocks response",
+      "Antagonist = triggers response",
+      "Agonist\u2011antagonist = mixed activity",
+      "Efficacy = binding strength"
+    ],
+    "correct": 2,
+    "answer_expl": "Agonist\u2011antagonists can activate then block or partially activate.",
+    "tags": [
+      "receptor"
+    ],
+    "id": "Q008"
+  },
+  {
+    "type": "MC",
+    "category": "Autonomic (Alpha/Beta)",
+    "question": "Alpha\u20111 stimulation causes:",
+    "options": [
+      "Bronchodilation",
+      "Vasoconstriction",
+      "\u2193 HR",
+      "\u2193 Secretions"
+    ],
+    "correct": 1,
+    "answer_expl": "Alpha\u20111 = vascular smooth muscle constriction.",
+    "tags": [],
+    "id": "Q009"
+  },
+  {
+    "type": "MC",
+    "category": "Autonomic (Alpha/Beta)",
+    "question": "Beta\u20111 activation primarily:",
+    "options": [
+      "\u2191 HR/contractility/conduction",
+      "Bronchodilation",
+      "\u2193 NE release",
+      "Miosis"
+    ],
+    "correct": 0,
+    "answer_expl": "Beta\u20111 = heart.",
+    "tags": [],
+    "id": "Q010"
+  },
+  {
+    "type": "MC",
+    "category": "Autonomic (Alpha/Beta)",
+    "question": "Beta\u20112 activation primarily:",
+    "options": [
+      "Bronchoconstriction",
+      "Bronchodilation, uterine relaxation",
+      "Bradycardia",
+      "Miosis"
+    ],
+    "correct": 1,
+    "answer_expl": "Beta\u20112 = lungs/smooth muscle.",
+    "tags": [],
+    "id": "Q011"
+  },
+  {
+    "type": "MC",
+    "category": "Autonomic (Alpha/Beta)",
+    "question": "Ipratropium bromide works by:",
+    "options": [
+      "Beta\u20112 agonism",
+      "Alpha\u20111 blockade",
+      "Anticholinergic (muscarinic) blockade",
+      "Alpha\u20112 agonism"
+    ],
+    "correct": 2,
+    "answer_expl": "Anticholinergic prevents vagal bronchoconstriction & secretions.",
+    "tags": [],
+    "id": "Q012"
+  },
+  {
+    "type": "MS",
+    "category": "Autonomic (Alpha/Beta)",
+    "question": "Pick all epinephrine receptor effects (1:1000 IM in anaphylaxis):",
+    "options": [
+      "Alpha\u20111 vasoconstriction",
+      "Beta\u20111 \u2191 inotropy/chronotropy",
+      "Beta\u20112 bronchodilation",
+      "Muscarinic blockade"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "answer_expl": "Epinephrine is mixed alpha/beta agonist.",
+    "tags": [],
+    "id": "Q013"
+  },
+  {
+    "type": "SA",
+    "category": "Autonomic (Alpha/Beta)",
+    "question": "Contrast a beta\u20112 agonist vs an anticholinergic bronchodilator in asthma.",
+    "rubric": "Mention beta\u20112 (smooth muscle relaxation) vs muscarinic blockade (\u2193 vagal tone, \u2193 mucus). Add rationale for combining in severe bronchospasm.",
+    "sample_answer": "Beta\u20112 (salbutamol) relaxes airway smooth muscle; ipratropium blocks vagal bronchoconstriction and mucus. Combination is additive in moderate\u2011severe exacerbations.",
+    "tags": [],
+    "id": "Q014"
+  },
+  {
+    "type": "MC",
+    "category": "Med Assessment/Seven Rights",
+    "question": "The '3 Cs and an E' before administration are:",
+    "options": [
+      "Color, Clarity, Concentration, Expiry",
+      "Check, Confirm, Chart, Expired",
+      "Count, Color, Concentration, Entry",
+      "Color, Calculation, Consent, Expiry"
+    ],
+    "correct": 0,
+    "answer_expl": "3 Cs + Expiry reduces med errors.",
+    "tags": [],
+    "id": "Q015"
+  },
+  {
+    "type": "T/F",
+    "category": "Med Assessment/Seven Rights",
+    "question": "Always obtain vitals 5 minutes before and after every medication administration.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": 0,
+    "answer_expl": "Trend vital responses to meds.",
+    "tags": [],
+    "id": "Q016"
+  },
+  {
+    "type": "WR",
+    "category": "Med Assessment/Seven Rights",
+    "question": "Write a safe\u2011medication workflow you will follow for nitroglycerin SL in suspected ACS.",
+    "rubric": "Include: scene safety, history, focused exam, vitals & SBP, rule\u2011out PDE5 use & RVMI, 12\u2011lead note, 0.4 mg SL q5, monitor, reassess, withhold if SBP<100.",
+    "sample_answer": "Sample should include 7 Rights, contraindications, and documentation.",
+    "tags": [],
+    "id": "Q017"
+  },
+  {
+    "type": "MC",
+    "category": "Medical Math",
+    "question": "How many mg in 0.5 g?",
+    "options": [
+      "0.5 mg",
+      "5 mg",
+      "50 mg",
+      "500 mg"
+    ],
+    "correct": 3,
+    "answer_expl": "1 g = 1000 mg.",
+    "tags": [],
+    "id": "Q018"
+  },
+  {
+    "type": "FIB",
+    "category": "Medical Math",
+    "question": "Volume (mL) = desired dose \u00d7 volume on hand \u00f7 ________",
+    "correct": "concentration",
+    "answer_expl": "Core dosing formula.",
+    "tags": [],
+    "id": "Q019"
+  },
+  {
+    "type": "MC",
+    "category": "Medical Math",
+    "question": "You have 60 mg in 2 mL; you need 15 mg. Volume to give?",
+    "options": [
+      "0.25 mL",
+      "0.5 mL",
+      "1 mL",
+      "1.5 mL"
+    ],
+    "correct": 1,
+    "answer_expl": "(15 mg \u00d7 2 mL)/60 mg = 0.5 mL",
+    "tags": [],
+    "id": "Q020"
+  },
+  {
+    "type": "MC",
+    "category": "Medical Math",
+    "question": "gtt/min for 500 mL NS over 30 min with 10 gtt set:",
+    "options": [
+      "83 gtt/min",
+      "100 gtt/min",
+      "167 gtt/min",
+      "200 gtt/min"
+    ],
+    "correct": 2,
+    "answer_expl": "(500\u00d710)/30=166.7\u2248167",
+    "tags": [],
+    "id": "Q021"
+  },
+  {
+    "type": "MC",
+    "category": "Medical Math",
+    "question": "Parkland formula: Fluid = TBSA% \u00d7 kg \u00d7 ____ mL",
+    "options": [
+      "2",
+      "3",
+      "4",
+      "6"
+    ],
+    "correct": 2,
+    "answer_expl": "Give 1/2 in first 8h, remainder over next 16h.",
+    "tags": [],
+    "id": "Q022"
+  },
+  {
+    "type": "SA",
+    "category": "Medical Math",
+    "question": "Convert 200 lb to kg using the exact formula and the 'divide by 2 then minus 10%' shortcut.",
+    "rubric": "Show both methods and round properly.",
+    "sample_answer": "200/2.2 \u2248 90.9 kg; 200/2=100; minus 10% (=10) \u2192 90 kg.",
+    "tags": [],
+    "id": "Q023"
+  },
+  {
+    "type": "MC",
+    "category": "IV Fluids & Blood",
+    "question": "0.9% NaCl is:",
+    "options": [
+      "Hypotonic",
+      "Isotonic",
+      "Hypertonic",
+      "Colloid"
+    ],
+    "correct": 1,
+    "answer_expl": "NS is isotonic crystalloid.",
+    "tags": [],
+    "id": "Q024"
+  },
+  {
+    "type": "MC",
+    "category": "IV Fluids & Blood",
+    "question": "RL contains which electrolytes?",
+    "options": [
+      "Na+, K+, Ca2+, Cl-, lactate",
+      "Na+, Mg2+, PO4\u2212",
+      "Na+ only",
+      "Na+, glucose"
+    ],
+    "correct": 0,
+    "answer_expl": "RL is balanced electrolyte solution with lactate buffer.",
+    "tags": [],
+    "id": "Q025"
+  },
+  {
+    "type": "MC",
+    "category": "IV Fluids & Blood",
+    "question": "D5W is isotonic in the bag but becomes effectively:",
+    "options": [
+      "Isotonic",
+      "Hypotonic",
+      "Hypertonic",
+      "Colloid"
+    ],
+    "correct": 1,
+    "answer_expl": "Once dextrose is metabolized, free water acts hypotonic.",
+    "tags": [],
+    "id": "Q026"
+  },
+  {
+    "type": "T/F",
+    "category": "IV Fluids & Blood",
+    "question": "Colloids are commonly used prehospital for hypovolemia.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": 1,
+    "answer_expl": "Colloids rarely used prehospital; risk of renal issues/shift.",
+    "tags": [],
+    "id": "Q027"
+  },
+  {
+    "type": "MC",
+    "category": "IV Fluids & Blood",
+    "question": "Which fluid for dilution of IV drugs (compatibility) rather than volume replacement in shock?",
+    "options": [
+      "D5W",
+      "NS",
+      "RL",
+      "2/3\u20131/3"
+    ],
+    "correct": 0,
+    "answer_expl": "D5W often used for dilution; not for hypovolemic replacement.",
+    "tags": [],
+    "id": "Q028"
+  },
+  {
+    "type": "MC",
+    "category": "IV Fluids & Blood",
+    "question": "Universal donor RBC type:",
+    "options": [
+      "AB+",
+      "AB\u2212",
+      "O\u2212",
+      "O+"
+    ],
+    "correct": 2,
+    "answer_expl": "O\u2212 RBCs lack A/B antigens & Rh factor.",
+    "tags": [],
+    "id": "Q029"
+  },
+  {
+    "type": "MC",
+    "category": "IV Fluids & Blood",
+    "question": "Blood transfusion tubing must include:",
+    "options": [
+      "Heat exchanger",
+      "Filter",
+      "Microdrip chamber only",
+      "Bacteria trap only"
+    ],
+    "correct": 1,
+    "answer_expl": "Filter prevents clots/debris administration.",
+    "tags": [],
+    "id": "Q030"
+  },
+  {
+    "type": "MC",
+    "category": "IV Fluids & Blood",
+    "question": "Acute hemolytic transfusion reaction hallmark:",
+    "options": [
+      "Urticaria only",
+      "Fever + low back pain + hypotension",
+      "Dry cough",
+      "JVD + hypertension"
+    ],
+    "correct": 1,
+    "answer_expl": "ABO incompatibility \u2192 hemolysis, back pain, shock.",
+    "tags": [],
+    "id": "Q031"
+  },
+  {
+    "type": "SA",
+    "category": "IV Fluids & Blood",
+    "question": "Outline prehospital steps if you suspect transfusion reaction mid\u2011infusion.",
+    "rubric": "Stop infusion, keep line with NS, monitor ABCs, vitals, treat shock, notify receiving facility, document.",
+    "sample_answer": "Emphasize rapid recognition and supportive care.",
+    "tags": [],
+    "id": "Q032"
+  },
+  {
+    "type": "MC",
+    "category": "Cardiology Meds",
+    "question": "ASA mechanism most relevant in ACS:",
+    "options": [
+      "Beta\u2011blockade",
+      "Inhibits thromboxane A2 (platelet aggregation)",
+      "Dissolves fibrin clots",
+      "Increases coronary spasm"
+    ],
+    "correct": 1,
+    "answer_expl": "Antiplatelet effect is key in ACS.",
+    "tags": [],
+    "id": "Q033"
+  },
+  {
+    "type": "MC",
+    "category": "Cardiology Meds",
+    "question": "Adult ASA dose for suspected ACS:",
+    "options": [
+      "81 mg PO swallow",
+      "160 mg PO chewed",
+      "325 mg IV",
+      "0.4 mg SL"
+    ],
+    "correct": 1,
+    "answer_expl": "Chewed 160 mg (or 162 mg) unless contraindicated.",
+    "tags": [],
+    "id": "Q034"
+  },
+  {
+    "type": "MC",
+    "category": "Cardiology Meds",
+    "question": "Nitroglycerin contraindication:",
+    "options": [
+      "Systolic BP > 100",
+      "Recent PDE\u20115 inhibitor use",
+      "Age > 65",
+      "History of diabetes"
+    ],
+    "correct": 1,
+    "answer_expl": "PDE\u20115 + nitrate can cause profound hypotension.",
+    "tags": [],
+    "id": "Q035"
+  },
+  {
+    "type": "MC",
+    "category": "Cardiology Meds",
+    "question": "Preferred action before nitro:",
+    "options": [
+      "Give first then check BP",
+      "Ensure IV access and SBP \u2265 100",
+      "Administer 0.8 mg/hr patch first",
+      "Give if RV MI present"
+    ],
+    "correct": 1,
+    "answer_expl": "Monitor BP, withhold in RVMI and hypotension.",
+    "tags": [],
+    "id": "Q036"
+  },
+  {
+    "type": "T/F",
+    "category": "Cardiology Meds",
+    "question": "PCP withholds nitro if monitor message indicates STEMI/ACUTE MI.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": 0,
+    "answer_expl": "Per AHS note, PCPs withhold nitro in STEMI message context (protocol note).",
+    "tags": [],
+    "id": "Q037"
+  },
+  {
+    "type": "SA",
+    "category": "Cardiology Meds",
+    "question": "Explain why nitro can worsen RV infarct\u2011related hypotension.",
+    "rubric": "RVMI is preload dependent; nitrates reduce preload causing drop in CO/BP.",
+    "sample_answer": "Tie to right\u2011sided filling and hemodynamics.",
+    "tags": [],
+    "id": "Q038"
+  },
+  {
+    "type": "MC",
+    "category": "Endocrine Meds",
+    "question": "Oral glucose route and dose:",
+    "options": [
+      "SL, 25 g x1",
+      "PO, 25 g; q 5 min max 50 g (conscious)",
+      "IV, 25 g",
+      "IN, 2 mg"
+    ],
+    "correct": 1,
+    "answer_expl": "Must be swallowed; give complex carb afterward.",
+    "tags": [],
+    "id": "Q039"
+  },
+  {
+    "type": "MC",
+    "category": "Endocrine Meds",
+    "question": "D50W adult dose (AHS):",
+    "options": [
+      "10 g SIVP q5",
+      "25 g SIVP/IO q5 to BGL>4.0 (max 50 g)",
+      "5 g SIVP",
+      "50 g SIVP single"
+    ],
+    "correct": 1,
+    "answer_expl": "Titrate to effect/BGL; consider halved dose in stroke/CVA.",
+    "tags": [],
+    "id": "Q040"
+  },
+  {
+    "type": "MC",
+    "category": "Endocrine Meds",
+    "question": "Glucagon adult IM dose when no IV:",
+    "options": [
+      "0.3 mg IM q5",
+      "1 mg IM q15 (max 2 mg)",
+      "2 mg IM single",
+      "3 mg IN repeat"
+    ],
+    "correct": 1,
+    "answer_expl": "Recheck BGL and provide complex carbohydrate afterward.",
+    "tags": [],
+    "id": "Q041"
+  },
+  {
+    "type": "T/F",
+    "category": "Endocrine Meds",
+    "question": "Insulin is commonly administered by PCPs in the prehospital setting.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": 1,
+    "answer_expl": "Not given in PCP prehospital scope for hypoglycemia.",
+    "tags": [],
+    "id": "Q042"
+  },
+  {
+    "type": "FIB",
+    "category": "Endocrine Meds",
+    "question": "Target BGL after treatment should be > ____ mmol/L",
+    "correct": "4.0",
+    "answer_expl": "Per AHS titration target.",
+    "tags": [],
+    "id": "Q043"
+  },
+  {
+    "type": "MC",
+    "category": "Resp/Antiemetic Meds",
+    "question": "Salbutamol adult neb dose:",
+    "options": [
+      "2.5 mg",
+      "5 mg",
+      "10 mg",
+      "20 mcg"
+    ],
+    "correct": 1,
+    "answer_expl": "5 mg prn; often with ipratropium 500 mcg.",
+    "tags": [],
+    "id": "Q044"
+  },
+  {
+    "type": "MC",
+    "category": "Resp/Antiemetic Meds",
+    "question": "Ipratropium adult neb dose:",
+    "options": [
+      "250 mcg",
+      "500 mcg (max 1500 mcg)",
+      "1 mg",
+      "20 mcg"
+    ],
+    "correct": 1,
+    "answer_expl": "Usually combined with 5 mg salbutamol.",
+    "tags": [],
+    "id": "Q045"
+  },
+  {
+    "type": "MC",
+    "category": "Resp/Antiemetic Meds",
+    "question": "Dimenhydrinate (Gravol) adult dose/route:",
+    "options": [
+      "25 mg PO only",
+      "50 mg SIVP/IM; 25 mg if >65 yrs",
+      "1 mg/kg IV",
+      "0.3 mg IM"
+    ],
+    "correct": 1,
+    "answer_expl": "Antiemetic with antihistamine & anticholinergic properties.",
+    "tags": [],
+    "id": "Q046"
+  },
+  {
+    "type": "MC",
+    "category": "Resp/Antiemetic Meds",
+    "question": "Diphenhydramine typical adult dose:",
+    "options": [
+      "1 mg/kg (max 50 mg) IM/IV",
+      "0.15 mg/kg",
+      "2 mg/kg",
+      "10 mg"
+    ],
+    "correct": 0,
+    "answer_expl": "Do not repeat; consider route and onset.",
+    "tags": [],
+    "id": "Q047"
+  },
+  {
+    "type": "MS",
+    "category": "Resp/Antiemetic Meds",
+    "question": "Select common salbutamol side effects:",
+    "options": [
+      "Palpitations",
+      "Tremor",
+      "Bradycardia",
+      "Nervousness"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "answer_expl": "Beta\u20112 agonists often cause tremor, palpitations, nervousness.",
+    "tags": [],
+    "id": "Q048"
+  },
+  {
+    "type": "SA",
+    "category": "Resp/Antiemetic Meds",
+    "question": "List signs of severe bronchospasm that warrant continuous nebs and prompt transport.",
+    "rubric": "Use of accessory muscles, short sentences, silent chest, refractory hypoxemia.",
+    "sample_answer": "Mention combination therapy and monitoring.",
+    "tags": [],
+    "id": "Q049"
+  },
+  {
+    "type": "MC",
+    "category": "Toxicology/Opioids",
+    "question": "Opioid triad includes:",
+    "options": [
+      "Mydriasis, tachypnea, agitation",
+      "Miosis, respiratory depression, ALOC",
+      "Miosis, hyperventilation, rash",
+      "Mydriasis, bradycardia, fever"
+    ],
+    "correct": 1,
+    "answer_expl": "Pinpoint pupils with hypoventilation and ALOC.",
+    "tags": [],
+    "id": "Q050"
+  },
+  {
+    "type": "MC",
+    "category": "Toxicology/Opioids",
+    "question": "Naloxone mechanism:",
+    "options": [
+      "Opioid agonist",
+      "Opioid partial agonist",
+      "Competitive opioid antagonist",
+      "GABA antagonist"
+    ],
+    "correct": 2,
+    "answer_expl": "Displaces opioids at receptors.",
+    "tags": [],
+    "id": "Q051"
+  },
+  {
+    "type": "MC",
+    "category": "Toxicology/Opioids",
+    "question": "Adult IV naloxone titration per protocol:",
+    "options": [
+      "0.05 mg IV q2 min max 1 mg",
+      "0.5 mg IV q2 min max 2 mg",
+      "2 mg IV once only",
+      "0.8 mg IM only"
+    ],
+    "correct": 0,
+    "answer_expl": "Titrate to ventilation; avoid full withdrawal if possible.",
+    "tags": [],
+    "id": "Q052"
+  },
+  {
+    "type": "MC",
+    "category": "Toxicology/Opioids",
+    "question": "Which is a known risk after naloxone?",
+    "options": [
+      "Non\u2011cardiogenic pulmonary edema",
+      "Severe hypotension",
+      "QT prolongation",
+      "Hyperkalemia"
+    ],
+    "correct": 0,
+    "answer_expl": "Rare but reported; monitor closely.",
+    "tags": [],
+    "id": "Q053"
+  },
+  {
+    "type": "T/F",
+    "category": "Toxicology/Opioids",
+    "question": "Goal of naloxone is full awakening as fast as possible.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": 1,
+    "answer_expl": "Goal is adequate respirations; avoid precipitated withdrawal.",
+    "tags": [],
+    "id": "Q054"
+  },
+  {
+    "type": "SA",
+    "category": "Toxicology/Opioids",
+    "question": "Explain 'duration of action may be shorter than opiate' and your transport plan.",
+    "rubric": "Opioids may outlast naloxone \u2192 rebound hypoventilation; monitor and redose per protocol, transport all.",
+    "sample_answer": "Include airway-first approach.",
+    "tags": [],
+    "id": "Q055"
+  },
+  {
+    "type": "MC",
+    "category": "Autonomic (Alpha/Beta)",
+    "question": "Which finding most reflects Beta\u20112 therapy success?",
+    "options": [
+      "\u2193 HR",
+      "\u2191 BP",
+      "Improved wheeze and longer phrases",
+      "Miosis"
+    ],
+    "correct": 2,
+    "answer_expl": "Wheezing improves and speech lengthens.",
+    "tags": [],
+    "id": "Q056"
+  },
+  {
+    "type": "MC",
+    "category": "Autonomic (Alpha/Beta)",
+    "question": "Alpha\u20111 blockade would most likely cause:",
+    "options": [
+      "Hypotension",
+      "Bronchoconstriction",
+      "Tachyarrhythmia",
+      "Miosis"
+    ],
+    "correct": 0,
+    "answer_expl": "Blocking vasoconstriction \u2192 vasodilation \u2192 lower BP.",
+    "tags": [],
+    "id": "Q057"
+  },
+  {
+    "type": "MC",
+    "category": "Autonomic (Alpha/Beta)",
+    "question": "Which best describes 'sympathomimetic'?",
+    "options": [
+      "Blocks NE/Epi effects",
+      "Mimics adrenergic effects",
+      "Blocks muscarinic receptors",
+      "Mimics PNS"
+    ],
+    "correct": 1,
+    "answer_expl": "Sympathomimetics activate alpha/beta pathways.",
+    "tags": [],
+    "id": "Q058"
+  },
+  {
+    "type": "FIB",
+    "category": "Autonomic (Alpha/Beta)",
+    "question": "Primary neurotransmitter of sympathetic post\u2011ganglionic neurons is ________",
+    "correct": "norepinephrine",
+    "answer_expl": "NE (except sweat glands).",
+    "tags": [],
+    "id": "Q059"
+  },
+  {
+    "type": "FIB",
+    "category": "Autonomic (Alpha/Beta)",
+    "question": "Primary neurotransmitter of parasympathetic post\u2011ganglionic neurons is ________",
+    "correct": "acetylcholine",
+    "answer_expl": "ACh (muscarinic).",
+    "tags": [],
+    "id": "Q060"
+  },
+  {
+    "type": "MAT",
+    "category": "PharmKinetics/Dynamics",
+    "question": "MATCH: (A) Affinity (B) Efficacy (C) Antagonist (D) Agonist \u2014 to definitions.",
+    "match_key": "A=Binding attraction; B=Ability to produce effect; C=Blocks response; D=Triggers response",
+    "tags": [],
+    "id": "Q061"
+  },
+  {
+    "type": "MC",
+    "category": "Intro/Legislation",
+    "question": "Which schedule requires physician order due to high abuse potential?",
+    "options": [
+      "OTC",
+      "Prescription",
+      "Controlled/Narcotic",
+      "Natural Health Product"
+    ],
+    "correct": 2,
+    "answer_expl": "Controlled/narcotics require orders & tracking.",
+    "tags": [],
+    "id": "Q062"
+  },
+  {
+    "type": "MC",
+    "category": "IV Fluids & Blood",
+    "question": "Which is a sign of fluid overload?",
+    "options": [
+      "Dry mucous membranes",
+      "Hypotension",
+      "Peripheral edema and crackles",
+      "Bradycardia"
+    ],
+    "correct": 2,
+    "answer_expl": "Also JVD, bounding pulse; consider CHF/renal history.",
+    "tags": [],
+    "id": "Q063"
+  },
+  {
+    "type": "FIB",
+    "category": "Cardiology Meds",
+    "question": "ASA dose for ACS (adult) = ____ mg PO chewed",
+    "correct": "160",
+    "answer_expl": "Chewed 160 mg (or 162 mg).",
+    "tags": [],
+    "id": "Q064"
+  },
+  {
+    "type": "FIB",
+    "category": "Cardiology Meds",
+    "question": "Nitro SL spray single dose = ____ mg; q 5 min prn until SBP<100",
+    "correct": "0.4",
+    "answer_expl": "Hold if SBP < 100, PDE\u20115, or RVMI suspicion.",
+    "tags": [],
+    "id": "Q065"
+  },
+  {
+    "type": "FIB",
+    "category": "Resp/Antiemetic Meds",
+    "question": "Epinephrine 1:1000 IM for anaphylaxis adult = ____ mg q 5 min to total 0.9 mg",
+    "correct": "0.3",
+    "answer_expl": "Vastus lateralis; monitor heart rhythm.",
+    "tags": [],
+    "id": "Q066"
+  },
+  {
+    "type": "FIB",
+    "category": "Resp/Antiemetic Meds",
+    "question": "Salbutamol adult neb dose = ____ mg prn",
+    "correct": "5",
+    "answer_expl": "Often mixed with ipratropium 500 mcg.",
+    "tags": [],
+    "id": "Q067"
+  },
+  {
+    "type": "FIB",
+    "category": "Resp/Antiemetic Meds",
+    "question": "Ipratropium adult neb dose = ____ mcg q ~5 min, max 1500 mcg",
+    "correct": "500",
+    "answer_expl": "Add-on bronchodilator via anticholinergic mechanism.",
+    "tags": [],
+    "id": "Q068"
+  },
+  {
+    "type": "FIB",
+    "category": "Resp/Antiemetic Meds",
+    "question": "Dimenhydrinate adult dose = ____ mg SIVP/IM (25 mg if >65 yrs)",
+    "correct": "50",
+    "answer_expl": "For nausea/vertigo/motion sickness; sedating.",
+    "tags": [],
+    "id": "Q069"
+  },
+  {
+    "type": "FIB",
+    "category": "Resp/Antiemetic Meds",
+    "question": "Diphenhydramine adult dose = ____ mg/kg (max 50 mg)",
+    "correct": "1",
+    "answer_expl": "After epinephrine in anaphylaxis.",
+    "tags": [],
+    "id": "Q070"
+  },
+  {
+    "type": "FIB",
+    "category": "Toxicology/Opioids",
+    "question": "Naloxone IV titration step = ____ mg q 2 min (max 1 mg)",
+    "correct": "0.05",
+    "answer_expl": "Titrate to respirations, avoid full withdrawal.",
+    "tags": [],
+    "id": "Q071"
+  },
+  {
+    "type": "FIB",
+    "category": "Endocrine Meds",
+    "question": "Oral glucose dose = ____ g PO q 5 min (max 50 g)",
+    "correct": "25",
+    "answer_expl": "Must be swallowed; give complex carb after.",
+    "tags": [],
+    "id": "Q072"
+  },
+  {
+    "type": "FIB",
+    "category": "Endocrine Meds",
+    "question": "D50W adult = ____ g SIVP/IO q 5 min to BGL>4.0, max 50 g",
+    "correct": "25",
+    "answer_expl": "Consider half dose in suspected CVA/ICH.",
+    "tags": [],
+    "id": "Q073"
+  },
+  {
+    "type": "FIB",
+    "category": "Endocrine Meds",
+    "question": "Glucagon adult IM = ____ mg q 15 min (max 2 mg)",
+    "correct": "1",
+    "answer_expl": "Use when no IV access.",
+    "tags": [],
+    "id": "Q074"
+  },
+  {
+    "type": "FIB",
+    "category": "Endocrine Meds",
+    "question": "Insulin is used prehospital by PCPs: answer ____ (Yes/No)",
+    "correct": "No",
+    "answer_expl": "Not in PCP scope for hypoglycemia correction.",
+    "tags": [],
+    "id": "Q075"
+  },
+  {
+    "type": "FIB",
+    "category": "IV Fluids & Blood",
+    "question": "Normal Saline is ____\u2011tonic crystalloid",
+    "correct": "iso",
+    "answer_expl": "Isotonic.",
+    "tags": [],
+    "id": "Q076"
+  },
+  {
+    "type": "FIB",
+    "category": "IV Fluids & Blood",
+    "question": "Ringer\u2019s Lactate contains lactate buffer; avoid in severe ____ failure",
+    "correct": "liver",
+    "answer_expl": "Metabolism of lactate impaired in liver failure.",
+    "tags": [],
+    "id": "Q077"
+  },
+  {
+    "type": "FIB",
+    "category": "IV Fluids & Blood",
+    "question": "D5W becomes effectively ____tonic after metabolism of dextrose",
+    "correct": "hypo",
+    "answer_expl": "Free water effect.",
+    "tags": [],
+    "id": "Q078"
+  },
+  {
+    "type": "T/F",
+    "category": "IV Fluids & Blood",
+    "question": "3:1 rule \u2014 use 3 mL crystalloid per 1 mL blood lost.",
+    "options": [
+      "True",
+      "False"
+    ],
+    "correct": 0,
+    "answer_expl": "Two\u2011thirds leaves vascular space quickly.",
+    "tags": [],
+    "id": "Q079"
+  },
+  {
+    "type": "MS",
+    "category": "PharmKinetics/Dynamics",
+    "question": "Pick factors that REDUCE absorption speed:",
+    "options": [
+      "Shock/hypoperfusion",
+      "Large alveolar surface area",
+      "Hypothermia",
+      "Good muscular blood flow"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "answer_expl": "Perfusion and temperature matter.",
+    "tags": [],
+    "id": "Q080"
+  },
+  {
+    "type": "MC",
+    "category": "Med Assessment/Seven Rights",
+    "question": "Which is best to verify before D50W push?",
+    "options": [
+      "18g IV patency with NS running",
+      "No NS needed",
+      "Push fast without vein check",
+      "Give IM"
+    ],
+    "correct": 0,
+    "answer_expl": "Prevent extravasation/tissue injury.",
+    "tags": [],
+    "id": "Q081"
+  },
+  {
+    "type": "WR",
+    "category": "PharmKinetics/Dynamics",
+    "question": "Explain protein binding vs free drug and clinical impact on onset/duration.",
+    "rubric": "Discuss albumin binding delaying onset, prolonging duration; free drug is active; low albumin increases free fraction.",
+    "sample_answer": "Tie to elderly/malnourished patients.",
+    "tags": [],
+    "id": "Q082"
+  },
+  {
+    "type": "WR",
+    "category": "Toxicology/Opioids",
+    "question": "Outline a full Adult Opiate Overdose approach (primary -> drug).",
+    "rubric": "Airway/ventilation first, BGL, titrated naloxone dosing, monitor for recurrence, transport all meds to hospital.",
+    "sample_answer": "Emphasize ABCs over diagnostic Narcan.",
+    "tags": [],
+    "id": "Q083"
+  },
+  {
+    "type": "WR",
+    "category": "Resp/Antiemetic Meds",
+    "question": "Write a combined bronchodilator plan for severe asthma/COPD exacerbation.",
+    "rubric": "Continuous salbutamol nebs + scheduled ipratropium, steroids per ACP/ED, oxygen titration, reassess.",
+    "sample_answer": "Note Beta\u20112 + anticholinergic synergy.",
+    "tags": [],
+    "id": "Q084"
+  },
+  {
+    "type": "WR",
+    "category": "IV Fluids & Blood",
+    "question": "Document an IV fluid plan for hemorrhagic shock (prehospital).",
+    "rubric": "Permissive hypotension SBP 90\u2013100, 3:1 crystalloid rule, monitor overload, consider rapid transport.",
+    "sample_answer": "State NS or RL considerations.",
+    "tags": [],
+    "id": "Q085"
+  },
+  {
+    "type": "SA",
+    "category": "Intro/Legislation",
+    "question": "List the Seven Rights and the 3 Cs + E.",
+    "rubric": "All seven plus color/clarity/concentration/expiry.",
+    "sample_answer": "Ensure wording is correct.",
+    "tags": [],
+    "id": "Q086"
+  },
+  {
+    "type": "SA",
+    "category": "PharmKinetics/Dynamics",
+    "question": "Work the half\u2011life example: 1 mg; t\u00bd=3 min; how much remains at 9 min? Show steps.",
+    "rubric": "0.5 mg at 3; 0.25 at 6; 0.125 mg at 9.",
+    "sample_answer": "Show arithmetic.",
+    "tags": [],
+    "id": "Q087"
+  },
+  {
+    "type": "SA",
+    "category": "Cardiology Meds",
+    "question": "Give two ASA contraindications and one caution.",
+    "rubric": "Active GI bleed, allergy; caution with anticoagulants.",
+    "sample_answer": "Link to Reye's in children.",
+    "tags": [],
+    "id": "Q088"
+  }
+]
