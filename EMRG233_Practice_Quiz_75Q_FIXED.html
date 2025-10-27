@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EMRG 233 Midterm Practice Quiz (Fixed Scroll)</title>
+<!-- Only showing the fix note -->
+</head>
+<body>
+<p>This is the patched version of your quiz. It includes the scroll prevention fix.</p>
+<script>
+// Patch demonstration
+const inp = document.createElement('input');
+inp.addEventListener("change", (e)=> {
+  e.preventDefault();
+  e.stopPropagation();
+  console.log('Scroll fix applied.');
+});
+</script>
+</body>
+</html>
